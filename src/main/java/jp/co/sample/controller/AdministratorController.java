@@ -12,12 +12,6 @@ import jp.co.sample.form.InsertAdministratorForm;
 import jp.co.sample.form.LoginForm;
 import jp.co.sample.service.AdministratorService;
 
-/**
- * 管理者情報登録画面を表示する処理を記述する
- * 
- * @author konomitaimu
- *
- */
 @Controller
 @RequestMapping("/")
 public class AdministratorController {
