@@ -34,7 +34,7 @@ public class EmployeeRepository {
 		employee.setAddress(rs.getString("address"));
 		employee.setTelephone(rs.getString("telephone"));
 		employee.setSalary(rs.getInt("salary"));
-		employee.setCharacteristics(rs.getString("characteristic"));
+		employee.setCharacteristics(rs.getString("characteristics"));
 		employee.setDependentsCount(rs.getInt("dependents_count"));
 		return employee;
 	};
@@ -48,7 +48,7 @@ public class EmployeeRepository {
 	 * @return 従業員一覧情報(入社日順)
 	 */
 	public List<Employee> findAll() {
-		String sql = "SELECT * FROM employees ORDER BY id";
+		String sql = "SELECT * FROM employees ORDER BY hire_date";
 
 		List<Employee> employeeList = template.query(sql, EMPLOYEE_ROW_MAPPER);
 
