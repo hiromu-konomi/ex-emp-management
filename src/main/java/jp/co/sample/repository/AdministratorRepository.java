@@ -56,7 +56,7 @@ public class AdministratorRepository {
 	public Administrator findByMailAddressPassword(String mailAddress, String password) {
 		String sql = "SELECT * FROM administrators WHERE mail_address=:mailAddress AND password=:password ORDER BY id";
 
-		SqlParameterSource param = new MapSqlParameterSource().addValue("mail_address", mailAddress)
+		SqlParameterSource param = new MapSqlParameterSource().addValue("mailAddress", mailAddress)
 				.addValue("password", password);
 
 		Administrator administrator = template.queryForObject(sql, param, ADMINISTRATOR_ROW_MAPPER);

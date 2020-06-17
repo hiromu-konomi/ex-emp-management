@@ -3,8 +3,7 @@ package jp.co.sample.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -86,13 +85,13 @@ public class AdministratorController {
 	@RequestMapping("/login")
 	public String login(LoginForm form, Model model) {
 		Administrator adm = new Administrator();
-		adm = administratorService.login(form.getMailAddress(), form.getPassword());
-		String errorMessage = "メールアドレスまたはパスワードが不正です。";
-		if(adm.equals(null)) {
-			model.addAttribute("errorMessage", errorMessage);
-		} else {
-			session.setAttribute("administratorName", adm.getName());
+		try {
+			adm = administratorService.login(form.getMailAddress(), form.getPassword());
+		} catch(EmptyResultDataAccessException ex) {
+			model.addAttribute("errorMessage", "メールアドレスまたはパスワードが不正です。");
+			return toLogin();
 		}
+		session.setAttribute("administratorName", adm.getName());
 		return "forward:/employee/showList";
 	}
 }
