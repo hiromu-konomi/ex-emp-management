@@ -61,6 +61,10 @@ public class AdministratorRepository {
 
 		Administrator administrator = template.queryForObject(sql, param, ADMINISTRATOR_ROW_MAPPER);
 
-		return administrator;
+		if (sql.equals(null)) {
+			return null;
+		} else {
+			return administrator;
+		}
 	}
 }
