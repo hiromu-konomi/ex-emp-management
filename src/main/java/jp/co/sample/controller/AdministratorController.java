@@ -2,16 +2,19 @@ package jp.co.sample.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.sample.domain.Administrator;
 import jp.co.sample.form.InsertAdministratorForm;
+import jp.co.sample.form.LoginForm;
 import jp.co.sample.service.AdministratorService;
 
 /**
  * 管理者情報登録画面を表示する処理を記述する
+ * 
  * @author konomitaimu
  *
  */
@@ -33,6 +36,26 @@ public class AdministratorController {
 	}
 
 	/**
+	 * LoginFormをインスタンス化しそのままreturnする処理
+	 * 
+	 * @return LoginFormオブジェクト
+	 */
+	@ModelAttribute
+	public LoginForm setUpLoginForm() {
+		return new LoginForm();
+	}
+
+	/**
+	 * 「administrator/login.html」にフォワードする処理
+	 * 
+	 * @return「administrator/login.html」にフォワード
+	 */
+	@RequestMapping("/")
+	public String toLogin() {
+		return "administrator/login";
+	}
+
+	/**
 	 * 「administrator/insert.html」にフォワードする処理
 	 * 
 	 * @return 「administrator/insert.html」にフォワード
@@ -41,9 +64,10 @@ public class AdministratorController {
 	public String toInsert() {
 		return "administrator/insert";
 	}
-	
+
 	/**
 	 * 管理者情報を登録する
+	 * 
 	 * @param form
 	 * @return 「/」にリダイレクト
 	 */
@@ -53,9 +77,9 @@ public class AdministratorController {
 		adm.setName(form.getName());
 		adm.setMailAddress(form.getMailAddress());
 		adm.setPassword(form.getPassword());
-		
+
 		administratorService.insert(adm);
-		
+
 		return "redirect:/";
 	}
 }
