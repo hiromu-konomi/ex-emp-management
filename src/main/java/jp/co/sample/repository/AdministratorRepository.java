@@ -1,6 +1,8 @@
+
 package jp.co.sample.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -10,6 +12,12 @@ import org.springframework.stereotype.Repository;
 
 import jp.co.sample.domain.Administrator;
 
+/**
+ * administratorsテーブルを操作するリポジトリ(Dao)
+ * 
+ * @author konomitaimu
+ *
+ */
 @Repository
 public class AdministratorRepository {
 

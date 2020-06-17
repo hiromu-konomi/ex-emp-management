@@ -1,5 +1,11 @@
 package jp.co.sample.domain;
 
+/**
+ * 管理者情報を表すドメイン
+ * 
+ * @author konomitaimu
+ *
+ */
 public class Administrator {
 	public Administrator(Integer id, String name, String mailAddress, String password) {
 		super();
