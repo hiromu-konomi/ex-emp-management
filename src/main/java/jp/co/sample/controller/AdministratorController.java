@@ -14,12 +14,22 @@ public class AdministratorController {
 
 	@Autowired
 	private AdministratorService administratorService;
-	
+
+	/**
+	 * InsertAdministratorFormをインスタンス化しそのままreturnする処理
+	 * 
+	 * @return InsertAdministratorFormオブジェクト
+	 */
 	@ModelAttribute
 	public InsertAdministratorForm setUpInsertAdministratorForm() {
 		return new InsertAdministratorForm();
 	}
-	
+
+	/**
+	 * 「administrator/insert.html」にフォワードする処理
+	 * 
+	 * @return 「administrator/insert.html」にフォワード
+	 */
 	@RequestMapping("/toInsert")
 	public String toInsert() {
 		return "administrator/insert";
