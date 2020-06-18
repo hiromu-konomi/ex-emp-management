@@ -159,7 +159,7 @@
 									</label>
 									<label class="control-label" style="color: red" for="dependentsCount"></label>
 									<input type="hidden" name="id" th:value="${employee.id}">
-									<input type="text" name="dependentsCount" id="dependentsCount" class="form-control" th:field="*{dependentsCount}" th:value="${field}">
+									<input type="text" name="dependentsCount" id="dependentsCount" class="form-control" th:field="${employee.dependentsCount}">
 							    </td>
 							  </tr>
 							</table>
