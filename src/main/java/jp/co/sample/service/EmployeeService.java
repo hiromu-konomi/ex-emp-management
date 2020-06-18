@@ -16,19 +16,21 @@ public class EmployeeService {
 
 	@Autowired
 	private EmployeeRepository employeeRepository;
-	
+
 	/**
 	 * 従業員情報を全件取得する
+	 * 
 	 * @return 取得された従業員情報一覧
 	 */
-	public List<Employee> showList(){
+	public List<Employee> showList() {
 		List<Employee> employeeList = new ArrayList<>();
 		employeeList = employeeRepository.findAll();
 		return employeeList;
 	}
-	
+
 	/**
 	 * 従業員情報を取得する
+	 * 
 	 * @param id
 	 * @return 取得された従業員情報
 	 */
@@ -36,5 +38,14 @@ public class EmployeeService {
 		Employee emp = new Employee();
 		emp = employeeRepository.load(id);
 		return emp;
+	}
+
+	/**
+	 * 従業員情報を更新する
+	 * 
+	 * @param employee
+	 */
+	public void update(Employee employee) {
+		employeeRepository.update(employee);
 	}
 }
