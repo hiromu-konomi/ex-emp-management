@@ -51,7 +51,7 @@ public class EmployeeRepository {
 		String sql = "SELECT * FROM employees ORDER BY hire_date DESC";
 
 		List<Employee> employeeList = template.query(sql, EMPLOYEE_ROW_MAPPER);
-
+		
 		return employeeList;
 	}
 
