@@ -48,7 +48,7 @@ public class EmployeeRepository {
 	 * @return 従業員一覧情報(入社日順)
 	 */
 	public List<Employee> findAll() {
-		String sql = "SELECT * FROM employees ORDER BY hire_date";
+		String sql = "SELECT * FROM employees ORDER BY hire_date DESC";
 
 		List<Employee> employeeList = template.query(sql, EMPLOYEE_ROW_MAPPER);
 
@@ -77,7 +77,7 @@ public class EmployeeRepository {
 	 * @param employee
 	 */
 	public void update(Employee employee) {
-		String sql = "UPDATE employees SET dependents_count=:dependents_count WHERE id=:id";
+		String sql = "UPDATE employees SET dependents_count=:dependentsCount WHERE id=:id";
 
 		SqlParameterSource param = new BeanPropertySqlParameterSource(employee);
 
