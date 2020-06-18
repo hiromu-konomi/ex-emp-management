@@ -2,16 +2,16 @@ package jp.co.sample.form;
 
 public class UpdateEmployeeForm {
 	/** 従業員ID */
-	private String name;
+	private String id;
 	/** 扶養人数 */
 	private String dependentsCount;
 
-	public String getName() {
-		return name;
+	public String getId() {
+		return id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getDependentsCount() {
@@ -24,7 +24,8 @@ public class UpdateEmployeeForm {
 
 	@Override
 	public String toString() {
-		return "UpdateEmployeeForm [name=" + name + ", dependentsCount=" + dependentsCount + "]";
+		return "UpdateEmployeeForm [id=" + id + ", dependentsCount=" + dependentsCount + "]";
 	}
+	
 
 }
